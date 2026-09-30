@@ -1,0 +1,19 @@
+{
+  "name": "product-mongodb-mvc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CRUD san pham bang Express MVC, EJS va MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "check": "node --check app.js && node --check config/database.js && node --check controllers/productController.js && node --check models/productModel.js && node --check routes/productRoutes.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.18.1"
+  }
+}

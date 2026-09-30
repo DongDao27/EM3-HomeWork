@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quan ly san pham - MongoDB</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <div><span class="badge">MongoDB</span><h1>Danh sach san pham</h1></div>
+      <a class="button" href="/products/new">+ Them san pham</a>
+    </header>
+
+    <% if (products.length === 0) { %>
+      <section class="empty">Chua co san pham nao.</section>
+    <% } else { %>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Ten</th><th>Gia</th><th>Mo ta</th><th>Thao tac</th></tr></thead>
+          <tbody>
+            <% products.forEach((product) => { %>
+              <tr>
+                <td><strong><%= product.name %></strong></td>
+                <td><%= Number(product.price).toLocaleString('vi-VN') %> d</td>
+                <td><%= product.description || '—' %></td>
+                <td class="actions">
+                  <a class="button secondary" href="/products/<%= product._id %>/edit">Sua</a>
+                  <form action="/products/<%= product._id %>?_method=DELETE" method="post" onsubmit="return confirm('Ban chac chan muon xoa san pham nay?')">
+                    <button class="button danger" type="submit">Xoa</button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </main>
+</body>
+</html>

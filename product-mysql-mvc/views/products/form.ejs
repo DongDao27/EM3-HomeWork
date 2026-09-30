@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= isEditing ? 'Sua' : 'Them' %> san pham - MySQL</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="container narrow">
+    <a class="back" href="/products">← Quay lai danh sach</a>
+    <section class="card">
+      <span class="badge">MySQL</span>
+      <h1><%= isEditing ? 'Cap nhat san pham' : 'Them san pham' %></h1>
+      <% if (errors.length) { %>
+        <div class="errors"><% errors.forEach((error) => { %><p><%= error %></p><% }) %></div>
+      <% } %>
+      <form action="<%= isEditing ? '/products/' + product.id + '?_method=PUT' : '/products' %>" method="post">
+        <label>Ten san pham<input name="name" maxlength="150" required value="<%= product.name || '' %>"></label>
+        <label>Gia (VND)<input name="price" type="number" min="0" step="0.01" required value="<%= product.price ?? '' %>"></label>
+        <label>Mo ta<textarea name="description" rows="5"><%= product.description || '' %></textarea></label>
+        <button class="button" type="submit"><%= isEditing ? 'Luu thay doi' : 'Them san pham' %></button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
