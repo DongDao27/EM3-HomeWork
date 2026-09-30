@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS Square
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
+
+USE Square;
+
+CREATE TABLE IF NOT EXISTS squares (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sideLength FLOAT NOT NULL,
+  perimeter FLOAT NOT NULL,
+  area FLOAT NOT NULL
+);

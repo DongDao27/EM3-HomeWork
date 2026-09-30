@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính hình vuông</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #172033;
+        background: #eef2ff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: radial-gradient(circle at top, #dbeafe 0, #eef2ff 42%, #f8fafc 100%);
+      }
+
+      main {
+        width: min(100%, 520px);
+        padding: 36px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 24px 70px rgba(30, 64, 175, 0.14);
+      }
+
+      .icon {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 20px;
+        border-radius: 16px;
+        background: #4f46e5;
+        color: white;
+        font-size: 30px;
+      }
+
+      h1 { margin: 0 0 8px; font-size: clamp(26px, 5vw, 34px); }
+      .subtitle { margin: 0 0 28px; color: #64748b; line-height: 1.6; }
+      label { display: block; margin-bottom: 9px; font-weight: 700; }
+
+      input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        font: inherit;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      input:focus { border-color: #6366f1; box-shadow: 0 0 0 4px #e0e7ff; }
+
+      button {
+        width: 100%;
+        margin-top: 16px;
+        padding: 14px 18px;
+        border: 0;
+        border-radius: 12px;
+        background: #4f46e5;
+        color: white;
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      button:hover { background: #4338ca; }
+
+      .error {
+        margin: 18px 0 0;
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: #fef2f2;
+        color: #b91c1c;
+      }
+
+      .results {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .result {
+        padding: 18px;
+        border: 1px solid #e0e7ff;
+        border-radius: 14px;
+        background: #f8faff;
+      }
+
+      .result span { display: block; margin-bottom: 6px; color: #64748b; font-size: 14px; }
+      .result strong { color: #3730a3; font-size: 25px; overflow-wrap: anywhere; }
+
+      @media (max-width: 440px) {
+        main { padding: 24px; }
+        .results { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="icon" aria-hidden="true">□</div>
+      <h1>Tính hình vuông</h1>
+      <form action="/calculate" method="POST">
+        <label for="sideLength">Độ dài cạnh</label>
+        <input
+          id="sideLength"
+          type="number"
+          name="sideLength"
+          value="<%= sideLength %>"
+          min="0.01"
+          step="any"
+          placeholder="Ví dụ: 5"
+          required
+          autofocus
+        />
+        <button type="submit">Tính kết quả</button>
+      </form>
+
+      <% if (error) { %>
+        <p class="error" role="alert"><%= error %></p>
+      <% } %>
+
+      <% if (perimeter !== null && area !== null) { %>
+        <section class="results" aria-live="polite">
+          <div class="result">
+            <span>Chu vi</span>
+            <strong><%= perimeter %></strong>
+          </div>
+          <div class="result">
+            <span>Diện tích</span>
+            <strong><%= area %></strong>
+          </div>
+        </section>
+      <% } %>
+    </main>
+  </body>
+</html>
