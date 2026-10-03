@@ -1,0 +1,6 @@
+<section>
+  <h2>New Products</h2>
+  <% products.forEach(product => { %>
+    <%- include('product-card', { product }) %>
+  <% }) %>
+</section>

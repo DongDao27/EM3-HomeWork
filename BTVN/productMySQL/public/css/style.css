@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 24px;
+}
+
+.banner,
+section {
+  margin-bottom: 24px;
+}
+
+.product {
+  border: 1px solid #ddd;
+  display: inline-block;
+  margin: 0 12px 12px 0;
+  padding: 16px;
+  vertical-align: top;
+  width: 220px;
+}
+
+.tag {
+  color: #b42318;
+  display: block;
+  margin-bottom: 12px;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  margin-top: 24px;
+  padding-top: 16px;
+}

@@ -1,0 +1,8 @@
+<div class="product">
+  <h3><%= product.name %></h3>
+  <p>$<%= product.price %></p>
+  <% if (product.tag) { %>
+    <span class="tag"><%= product.tag %></span>
+  <% } %>
+  <button>Buy now</button>
+</div>
