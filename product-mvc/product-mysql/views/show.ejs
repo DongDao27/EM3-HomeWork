@@ -1,0 +1,20 @@
+<%- include('partials/header', { title: 'Chi tiết sản phẩm' }) %>
+
+<a class="back-link" href="/">← Danh sách</a>
+
+<section class="detail-panel">
+    <div class="detail-gallery">
+        <%- include('partials/gallery', { product }) %>
+    </div>
+    <div class="detail-content">
+        <h1><%= product.name %></h1>
+        <p class="product-category"><%= product.category || 'Khác' %></p>
+        <p class="detail-price"><%= Number(product.price).toLocaleString('vi-VN') %> <span>VNĐ</span></p>
+        <p class="quantity-text">Số lượng: <%= product.quantity %></p>
+        <a class="icon-button" href="/edit/<%= product.id %>" title="Sửa sản phẩm" aria-label="Sửa <%= product.name %>">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 4 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15z"/></svg>
+        </a>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

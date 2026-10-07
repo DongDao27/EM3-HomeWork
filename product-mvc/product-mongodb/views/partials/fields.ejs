@@ -1,0 +1,45 @@
+<div class="mb-4">
+    <label for="name" class="form-label">Tên sản phẩm</label>
+    <input id="name" class="form-control" name="name" maxlength="100" value="<%= product ? product.name : '' %>" required>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-sm-6">
+        <label for="category" class="form-label">Danh mục</label>
+        <select id="category" name="category" class="form-select">
+            <% categories.forEach(name => { %>
+                <option value="<%= name %>" <%= name === (product ? product.category || 'Khác' : 'Khác') ? 'selected' : '' %>><%= name %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="col-sm-6">
+        <label for="newCategory" class="form-label">Danh mục mới</label>
+        <input id="newCategory" name="newCategory" class="form-control" maxlength="80" placeholder="Để trống nếu dùng danh mục có sẵn">
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-sm-6">
+        <label for="price" class="form-label">Giá (VNĐ)</label>
+        <input id="price" class="form-control" type="number" name="price" min="0" max="9999999999.99" step="0.01" value="<%= product ? product.price : '' %>" required>
+    </div>
+    <div class="col-sm-6">
+        <label for="quantity" class="form-label">Số lượng</label>
+        <input id="quantity" class="form-control" type="number" name="quantity" min="0" max="2147483647" step="1" value="<%= product ? product.quantity : '' %>" required>
+    </div>
+</div>
+
+<div data-image-picker>
+    <label for="image" class="form-label">Ảnh</label>
+    <input id="image" class="form-control" type="file" name="image" multiple accept="image/jpeg,image/png,image/webp" aria-describedby="image-help" <%= product ? '' : 'required' %>>
+    <p id="image-help" class="form-text">Giữ Ctrl để chọn cùng lúc tối đa 5 ảnh JPG, PNG, WEBP · 2 MB mỗi ảnh<%= product ? ' · Chọn ảnh mới để thay bộ ảnh cũ' : '' %></p>
+    <p class="form-text" data-image-count aria-live="polite"></p>
+    <div class="saved-images" data-image-preview></div>
+    <% if (product) { %>
+        <div class="saved-images">
+            <% (product.images && product.images.length ? product.images : [product.image]).forEach(image => { %>
+                <img class="preview" src="<%= image %>" alt="<%= product.name %>">
+            <% }) %>
+        </div>
+    <% } %>
+</div>

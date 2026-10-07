@@ -1,0 +1,12 @@
+const router = require('express').Router();
+const controller = require('../controllers/productController');
+const upload = require('../middleware/upload');
+router.get('/', controller.getAllProducts);
+router.get('/search', controller.getAllProducts);
+router.get('/add', controller.showAddProductForm);
+router.post('/add', upload.array('image', 5), controller.addProduct);
+router.get('/edit/:id', controller.showEditProductForm);
+router.post('/edit/:id', upload.array('image', 5), controller.updateProduct);
+router.post('/delete/:id', controller.deleteProduct);
+router.get('/products/:id', controller.showProductDetail);
+module.exports = router;

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%= title %> | DND Store</title>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Đến nội dung chính</a>
+        <header class="site-header">
+            <nav class="container nav-inner" aria-label="Điều hướng chính">
+                <a class="brand" href="/">DND Store</a>
+                <a class="header-products" href="/#products">Sản phẩm</a>
+            </nav>
+        </header>
+        <main id="main-content" class="container main-content <%= title === 'Danh sách sản phẩm' ? 'storefront' : '' %>">

@@ -1,0 +1,14 @@
+<%- include('partials/header', { title: 'Sửa sản phẩm' }) %>
+
+<section class="form-page">
+    <h1>Sửa sản phẩm</h1>
+    <form class="form-product" action="/edit/<%= product.id %>" method="POST" enctype="multipart/form-data">
+        <%- include('partials/fields', { product: product }) %>
+        <div class="form-actions">
+            <a class="btn btn-outline-secondary" href="/">Hủy</a>
+            <button class="btn btn-primary" type="submit">Lưu</button>
+        </div>
+    </form>
+</section>
+
+<%- include('partials/footer') %>

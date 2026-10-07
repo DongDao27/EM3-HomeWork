@@ -1,0 +1,15 @@
+<% const images = product.images && product.images.length ? product.images : [product.image]; %>
+<div class="gallery" data-gallery>
+    <div class="gallery-stage">
+        <img class="gallery-main" src="<%= images[0] %>" alt="<%= product.name %>">
+    </div>
+    <% if (images.length > 1) { %>
+        <div class="gallery-thumbnails" aria-label="Chọn ảnh sản phẩm">
+            <% images.forEach((image, index) => { %>
+                <button class="gallery-thumb <%= index === 0 ? 'is-selected' : '' %>" type="button" aria-label="Xem ảnh <%= index + 1 %> của <%= product.name %>" aria-pressed="<%= index === 0 %>">
+                    <img src="<%= image %>" alt="" loading="lazy">
+                </button>
+            <% }) %>
+        </div>
+    <% } %>
+</div>

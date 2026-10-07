@@ -1,10 +1,21 @@
-# Bai tap CRUD Product voi Node.js
+# Bài tập Node.js MVC
 
-Repository gom hai ung dung Express MVC doc lap:
+## DND Store — phiên bản mới
 
-- `product-mysql-mvc`: luu du lieu trong MySQL, chay mac dinh o cong 3001.
-- `product-mongodb-mvc`: luu du lieu trong MongoDB, chay mac dinh o cong 3002.
-- `square-mysql-mvc`: tinh chu vi, dien tich hinh vuong va luu vao MySQL.
-- `square-mvc`: tinh chu vi, dien tich hinh vuong va luu vao MongoDB.
+Ứng dụng quản lý sản phẩm gồm hai bản độc lập trong [`product-mvc`](product-mvc): MongoDB (cổng 3000) và MySQL XAMPP (cổng 3001). Có danh mục, tìm kiếm, CRUD, upload tối đa năm ảnh, thumbnails và popup chi tiết; giao diện có banner và footer.
 
-Moi thu muc co README va `.env.example` rieng. Hai ung dung Product co day du chuc nang them, xem, sua, xoa san pham; kiem tra du lieu dau vao; trang 404 va xu ly loi.
+- [Hướng dẫn cài đặt và thao tác database](product-mvc/README.md)
+- [Giải thích code và luồng MVC](product-mvc/HUONG-DAN-HOC-VA-TRINH-BAY.md)
+- [Thao tác và giải thích theo số dòng](product-mvc/GIAI-THICH-THEO-DONG.md)
+- [Ảnh xem trước](product-mvc/preview/desktop.png)
+
+Sao chép `.env.example` thành `.env`, cấu hình DB và chạy `npm install`, `npm start` trong thư mục phiên bản cần dùng. MySQL cài mới import `database.sql`; nâng cấp DB cũ xem phần migrations trong hướng dẫn.
+
+## Các bài thực hành trước
+
+- `product-mysql-mvc`: CRUD sản phẩm với MySQL, cổng 3001.
+- `product-mongodb-mvc`: CRUD sản phẩm với MongoDB, cổng 3002.
+- `square-mysql-mvc`: tính chu vi, diện tích hình vuông và lưu MySQL.
+- `square-mvc`: tính chu vi, diện tích hình vuông và lưu MongoDB.
+
+Các thư mục này có README và `.env.example` riêng. Khi chạy nhiều bài cùng lúc, cấu hình PORT khác nhau để tránh trùng cổng.
